@@ -14,7 +14,8 @@ class App extends Component {
             currentStepDurationText: '',
             intervalId: 0,
             currentStepState: 'SESSION',
-            chronoRunning: false
+            chronoRunning: false,
+            chronoEnd: false,
         };
     }
     componentDidMount()
@@ -88,7 +89,7 @@ class App extends Component {
                 currentStepDuration: this.state.currentStepDuration - 1,
                 currentStepDurationText: this.secondsTimeSpanToMS(this.state.currentStepDuration)
             });
-        } else if (this.state.currentSessionDuration === 0 && this.state.currentBreakDuration >= 0) {
+        } else if (this.state.currentSessionDuration === 0 && this.state.currentBreakDuration >= -1) {
             this.setState({
                 currentStepState: 'BREAK',
                 currentBreakDuration: this.state.currentBreakDuration - 1,
@@ -96,11 +97,23 @@ class App extends Component {
                 currentStepDurationText: this.secondsTimeSpanToMS(this.state.currentStepDuration)
             });
         }
-        if (this.state.currentSessionDuration === 0 && this.state.currentBreakDuration === 0) {
-            clearInterval(this.state.intervalId);
+        if (this.state.currentSessionDuration === 0 && this.state.currentBreakDuration === -1) {
+          console.log("chrono ended breakDuration " + this.state.currentBreakDuration);
+          this.resetStep();
         }
     }
 
+    resetStep()
+    {
+      clearInterval(this.state.intervalId);
+      this.setState({
+          currentStepState: 'SESSION',
+          currentSessionDuration: this.state.sessionDuration  * 60,
+          currentStepDurationText: this.secondsTimeSpanToMS(this.state.sessionDuration * 60),
+          currentBreakDuration: this.state.breakDuration * 60,
+          chronoRunning: false
+      });
+    }
     secondsTimeSpanToMS(s) {
         var m = Math.floor(s / 60); //Get remaining minutes
         s -= m * 60;
