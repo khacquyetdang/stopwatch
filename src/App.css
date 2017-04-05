@@ -1,24 +1,209 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.timeSetting {
+    display: inline;
+}
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/*
+    Created on : Feb 16, 2017, 3:08:25 PM
+    Author     : dang
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+:root {
+    --main-color: #2E2E2E;
+}
+
+body {
+    /*color: #161616;*/
+    color: var(--main-color);
+    font-family: 'Open+Sans', serif;
+    background-color: var(--main-color);
+}
+
+h1, h2, h3, h4, h5 {
+    color: white;
+    font-family: 'Open+Sans', serif;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 45px;
+}
+
+h3 {
+    font-size: 15px;
+}
+
+.main-background {
+    margin: auto;
+    /*margin-top: 100px;*/
+    position: relative;
+    width: 800px;
+    /*background-color: black;*/
+    -webkit-transition: all 1s ease;
+    -moz-transition: 1s ease;
+    transition: 1s ease;
+}
+
+.outer {
+    width: 100%;
+    text-align: center;
+}
+
+.inner-centered {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.my-div-center-content {
+    margin: auto;
+    max-width: 100px;
+    background: red;
+}
+
+.wi {
+    color: white;
+    font-size: 50px;
+}
+
+#author-text {
+    color: #184c6f;
+}
+
+.mybutton {
+    background-color: var(--main-color);
+    ;
+    color: white;
+}
+
+div.inline {
+    display: inline-block;
+    margin: 5px;
+    color: white;
+    font-size: 20px;
+}
+
+.customButton {
+    cursor: pointer;
+}
+
+.block {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.circle {
+    border-radius: 200px;
+    border-style: solid;
+    color: white;
+    height: 200px;
+    font-weight: bold;
+    width: 200px;
+    display: table;
+    /*margin: 20px auto;*/
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.circle p.top {
+    vertical-align: top;
+    font-size: 20px;
+    padding-top: 20%;
+}
+
+.circle p.bottom {
+    /*position: absolute;*/
+    text-align: center;
+    padding-top: 25%;
+    vertical-align: bottom;
+    font-size: 35px;
+    /*background-color: red;*/
+}
+
+.canvas_div {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    width: 190px;
+    height: 190px;
+    opacity: 1;
+}
+
+.circle_canvas {
+    position: relative;
+    border-radius: 100%;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+canvas, #circle_div {
+    /*position: absolute;*/
+}
+
+.inner-center {
+    display: table;
+    margin: 0 auto;
+}
+
+#container_canvas_circle {
+    position: relative;
+}
+
+canvas {
+    //border: 1px solid blue;
+    top: 0;
+    left: 0;
+    border-radius: 110px;
+    color: white;
+    height: 190px;
+    font-weight: bold;
+    width: 190px;
+    display: table;
+    /*margin: 20px auto;*/
+    opacity: 0.5;
+}
+
+.clearBoth {
+    clear: both;
 }
